@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transaction_items",
+  "info": {
+    "singularName": "transaction-item",
+    "pluralName": "transaction-items",
+    "displayName": "transactionItem"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "transaction": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::transaction.transaction",
+      "inversedBy": "transaction_items"
+    },
+    "quantity": {
+      "type": "decimal"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "transaction_items"
+    },
+    "subtotal": {
+      "type": "decimal",
+      "required": false
+    }
+  }
+}

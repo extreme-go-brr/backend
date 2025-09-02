@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "singularName": "transaction",
+    "pluralName": "transactions",
+    "displayName": "transaction"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "orderId": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "transactions"
+    },
+    "transaction_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transaction-item.transaction-item",
+      "mappedBy": "transaction"
+    },
+    "order_status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "paid"
+      ]
+    },
+    "totalAmount": {
+      "type": "decimal"
+    },
+    "trackingNumber": {
+      "type": "string"
+    },
+    "shippingProvider": {
+      "type": "string"
+    },
+    "shippedAt": {
+      "type": "datetime"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "shippingAddress": {
+      "type": "string"
+    }
+  }
+}

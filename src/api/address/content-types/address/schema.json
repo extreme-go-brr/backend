@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addresses",
+  "info": {
+    "singularName": "address",
+    "pluralName": "addresses",
+    "displayName": "address"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "addresses"
+    },
+    "nama_alamat": {
+      "type": "string"
+    },
+    "jalan": {
+      "type": "string"
+    },
+    "no_rumah": {
+      "type": "string"
+    },
+    "rt_rw": {
+      "type": "string"
+    },
+    "kecamatan": {
+      "type": "string"
+    },
+    "kota": {
+      "type": "string"
+    },
+    "provinsi": {
+      "type": "string"
+    },
+    "kode_pos": {
+      "type": "string"
+    },
+    "penerima":{
+      "type": "string"
+    },
+    "telepon":{
+      "type": "string"
+    }
+  }
+}
