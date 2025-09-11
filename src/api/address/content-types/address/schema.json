@@ -41,10 +41,10 @@
     "kode_pos": {
       "type": "string"
     },
-    "penerima":{
+    "penerima": {
       "type": "string"
     },
-    "telepon":{
+    "telepon": {
       "type": "string"
     }
   }

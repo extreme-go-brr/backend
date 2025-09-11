@@ -96,6 +96,17 @@
       "relation": "oneToMany",
       "target": "api::address.address",
       "mappedBy": "users_permissions_user"
+    },
+    "birth_date": {
+      "type": "date"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "others"
+      ]
     }
   }
 }

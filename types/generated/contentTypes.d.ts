@@ -1258,6 +1258,7 @@ export interface PluginUsersPermissionsUser
   };
   attributes: {
     addresses: Schema.Attribute.Relation<'oneToMany', 'api::address.address'>;
+    birth_date: Schema.Attribute.Date;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     carts: Schema.Attribute.Relation<'oneToMany', 'api::cart.cart'>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1270,6 +1271,7 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    gender: Schema.Attribute.Enumeration<['male', 'female', 'others']>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
