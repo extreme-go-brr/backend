@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the Strapi admin panel (if needed, otherwise you can remove this line)
-RUN npm run build
+# RUN npm run build
 
 # Expose the port Strapi runs on (default is 1337)
 EXPOSE 1337

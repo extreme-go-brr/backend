@@ -778,7 +778,9 @@ export interface ApiTransactionTransaction extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     notes: Schema.Attribute.String;
-    order_status: Schema.Attribute.Enumeration<['pending', 'paid']>;
+    order_status: Schema.Attribute.Enumeration<
+      ['pending', 'paid', 'completed']
+    >;
     orderId: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     shippedAt: Schema.Attribute.DateTime;
