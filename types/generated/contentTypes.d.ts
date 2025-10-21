@@ -779,15 +779,12 @@ export interface ApiTransactionTransaction extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     notes: Schema.Attribute.String;
     order_status: Schema.Attribute.Enumeration<
-      ['pending', 'paid', 'completed']
+      ['pending', 'paid', 'packing', 'ready', 'completed']
     >;
     orderId: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    shippedAt: Schema.Attribute.DateTime;
     shippingAddress: Schema.Attribute.String;
-    shippingProvider: Schema.Attribute.String;
     totalAmount: Schema.Attribute.Decimal;
-    trackingNumber: Schema.Attribute.String;
     transaction_items: Schema.Attribute.Relation<
       'oneToMany',
       'api::transaction-item.transaction-item'

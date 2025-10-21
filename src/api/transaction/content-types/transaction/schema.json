@@ -31,20 +31,13 @@
       "enum": [
         "pending",
         "paid",
+        "packing",
+        "ready",
         "completed"
       ]
     },
     "totalAmount": {
       "type": "decimal"
-    },
-    "trackingNumber": {
-      "type": "string"
-    },
-    "shippingProvider": {
-      "type": "string"
-    },
-    "shippedAt": {
-      "type": "datetime"
     },
     "notes": {
       "type": "string"
