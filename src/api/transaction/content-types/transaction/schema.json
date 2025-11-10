@@ -44,6 +44,12 @@
     },
     "shippingAddress": {
       "type": "string"
+    },
+    "shipment_detail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::shipment-detaill.shipment-detaill",
+      "mappedBy": "transaction"
     }
   }
 }

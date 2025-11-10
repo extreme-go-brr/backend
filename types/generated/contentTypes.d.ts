@@ -728,6 +728,10 @@ export interface ApiShipmentDetaillShipmentDetaill
     shipped_at: Schema.Attribute.DateTime;
     shipping_cost: Schema.Attribute.Decimal;
     tracking_number: Schema.Attribute.String;
+    transaction: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::transaction.transaction'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -855,6 +859,10 @@ export interface ApiTransactionTransaction extends Struct.CollectionTypeSchema {
     >;
     orderId: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    shipment_detail: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::shipment-detaill.shipment-detaill'
+    >;
     shippingAddress: Schema.Attribute.String;
     totalAmount: Schema.Attribute.Decimal;
     transaction_items: Schema.Attribute.Relation<

@@ -42,6 +42,12 @@
     },
     "accept_at": {
       "type": "datetime"
+    },
+    "transaction": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::transaction.transaction",
+      "inversedBy": "shipment_detail"
     }
   }
 }
