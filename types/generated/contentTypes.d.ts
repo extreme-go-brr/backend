@@ -550,6 +550,40 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCourierCourier extends Struct.CollectionTypeSchema {
+  collectionName: 'couriers';
+  info: {
+    displayName: 'courier';
+    pluralName: 'couriers';
+    singularName: 'courier';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    code: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_active: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::courier.courier'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    shipment_details: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::shipment-detaill.shipment-detaill'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDocumentationDocumentation
   extends Struct.CollectionTypeSchema {
   collectionName: 'documentations';
@@ -656,6 +690,44 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::transaction-item.transaction-item'
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiShipmentDetaillShipmentDetaill
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'shipment_detaills';
+  info: {
+    displayName: 'shipment_detail';
+    pluralName: 'shipment-detaills';
+    singularName: 'shipment-detaill';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    accept_at: Schema.Attribute.DateTime;
+    courier: Schema.Attribute.Relation<'manyToOne', 'api::courier.courier'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    customer_id: Schema.Attribute.String;
+    delivery_status: Schema.Attribute.Enumeration<
+      ['pending', 'shipped', 'delivered']
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::shipment-detaill.shipment-detaill'
+    > &
+      Schema.Attribute.Private;
+    orderId: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    shipped_at: Schema.Attribute.DateTime;
+    shipping_cost: Schema.Attribute.Decimal;
+    tracking_number: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1322,9 +1394,11 @@ declare module '@strapi/strapi' {
       'api::cart-item.cart-item': ApiCartItemCartItem;
       'api::cart.cart': ApiCartCart;
       'api::category.category': ApiCategoryCategory;
+      'api::courier.courier': ApiCourierCourier;
       'api::documentation.documentation': ApiDocumentationDocumentation;
       'api::feedback.feedback': ApiFeedbackFeedback;
       'api::product.product': ApiProductProduct;
+      'api::shipment-detaill.shipment-detaill': ApiShipmentDetaillShipmentDetaill;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::support.support': ApiSupportSupport;
       'api::transaction-item.transaction-item': ApiTransactionItemTransactionItem;

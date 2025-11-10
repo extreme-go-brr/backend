@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shipment_detaills",
+  "info": {
+    "singularName": "shipment-detaill",
+    "pluralName": "shipment-detaills",
+    "displayName": "shipment_detail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "courier": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::courier.courier",
+      "inversedBy": "shipment_details"
+    },
+    "orderId": {
+      "type": "string"
+    },
+    "tracking_number": {
+      "type": "string"
+    },
+    "shipping_cost": {
+      "type": "decimal"
+    },
+    "shipped_at": {
+      "type": "datetime"
+    },
+    "delivery_status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "shipped",
+        "delivered"
+      ]
+    },
+    "customer_id": {
+      "type": "string"
+    },
+    "accept_at": {
+      "type": "datetime"
+    }
+  }
+}
